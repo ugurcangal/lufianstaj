@@ -22,29 +22,31 @@ class RegisterActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val name = binding.editTextName
-        val surname = binding.editTextSurname
-        val phone = binding.editTextPhone
 
 
 
         binding.registerButton.setOnClickListener {
             signUp()
         }
+
     }
 
-    private fun signUp(){
-        val email = binding.editTextTextEmail.toString()
-        val password = binding.editTextTextPassword.toString()
+    private fun signUp() {
+        val name = binding.editTextName.text
+        val surname = binding.editTextSurname.text
+        val phone = binding.editTextPhone.text
+        val email = binding.editTextTextEmail.text.toString()
+        val password = binding.editTextTextPassword.text.toString()
 
-
-            auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
-                val intent = Intent(this,UserActivity::class.java)
+        if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && surname.isNotEmpty() && phone.isNotEmpty()) {
+            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                val intent = Intent(this, UserActivity::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener {
-                Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
-
+        } else Toast.makeText(this,"Lütfen Bilgileri Eksiksiz Girin!",Toast.LENGTH_SHORT).show()
     }
+
 }
