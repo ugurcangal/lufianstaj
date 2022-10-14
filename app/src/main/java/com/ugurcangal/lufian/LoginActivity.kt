@@ -7,7 +7,9 @@ import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.ugurcangal.lufian.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

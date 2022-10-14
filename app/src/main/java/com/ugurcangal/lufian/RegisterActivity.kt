@@ -8,7 +8,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.ugurcangal.lufian.databinding.ActivityAdminBinding
 import com.ugurcangal.lufian.databinding.ActivityRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
