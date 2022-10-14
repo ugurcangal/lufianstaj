@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137543083401",
+    "project_id": "lufianstaj",
+    "storage_bucket": "lufianstaj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137543083401:android:bf3ea2a1061317172fed58",
+        "android_client_info": {
+          "package_name": "com.ugurcangal.lufian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137543083401-bsk5lbn8defg3j0ntijpeifv7nma9g31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLnCx38vXkdHwYzUx9ItIMmWC7lXPNkB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137543083401-bsk5lbn8defg3j0ntijpeifv7nma9g31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
