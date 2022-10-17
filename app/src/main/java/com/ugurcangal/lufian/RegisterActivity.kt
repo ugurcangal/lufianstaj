@@ -31,9 +31,13 @@ class RegisterActivity : AppCompatActivity() {
 
 
         binding.registerButton.setOnClickListener {
-
-            viewModel.signUpFirebase(binding.editTextTextEmail.text.toString(),binding.editTextTextPassword.text.toString(),this)
-
+            val name = binding.editTextName.text.toString()
+            val surname = binding.editTextSurname.text.toString()
+            val phone = binding.editTextPhone.text.toString()
+            val email = binding.editTextTextEmail.text.toString()
+            val password = binding.editTextTextPassword.text.toString()
+            viewModel.signUpFirebase(email,password,this)
+            viewModel.addUser(name,surname,phone,email)
         }
 
     }

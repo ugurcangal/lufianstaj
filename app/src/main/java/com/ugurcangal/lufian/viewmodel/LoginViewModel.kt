@@ -27,7 +27,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
         if (userEmail == adminUser && password == adminPass) {
             auth.signInWithEmailAndPassword(userEmail, password)
                 .addOnSuccessListener {
-                    Toast.makeText(activity, it.user.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Başarıyla Giriş Yapıldı!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(activity, AdminActivity::class.java)
                     activity.startActivity(intent)
                     activity.finish()
@@ -38,7 +38,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
         } else if (userEmail.isNotEmpty() && password.isNotEmpty()) {
             auth.signInWithEmailAndPassword(userEmail, password)
                 .addOnSuccessListener {
-                    Toast.makeText(activity, it.user.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Başarıyla Giriş Yapıldı!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(activity, UserActivity::class.java)
                     activity.startActivity(intent)
                     activity.finish()
