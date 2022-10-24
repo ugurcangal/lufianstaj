@@ -28,15 +28,15 @@ class LoginActivity : AppCompatActivity() {
 
 
         auth.currentUser?.let {
-//            if (it.email == "admin@lufian.com"){
-//                val intent = Intent(this, AdminActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//            }else {
-//                val intent = Intent(this, UserActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//            }
+            if (it.email == "admin@lufian.com"){
+                val intent = Intent(this, AdminActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else {
+                val intent = Intent(this, UserActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
         binding.girisButton.setOnClickListener {

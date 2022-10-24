@@ -19,7 +19,14 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
     private val auth = Firebase.auth
     private val firestore = Firebase.firestore
 
-    fun signUpFirebase(email: String, password: String, activity: RegisterActivity) {
+    fun signUpFirebase(
+        userName: String,
+        userSurname: String,
+        phone: String,
+        email: String,
+        password: String,
+        activity: RegisterActivity
+    ) {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
                 Toast.makeText(activity, "Başarıyla Kayıt Olundu!", Toast.LENGTH_SHORT).show()
@@ -27,6 +34,7 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
                 activity.startActivity(intent)
                 activity.finishAffinity()
                 activity.finish()
+                addUser(userName,userSurname,phone, email)
             }.addOnFailureListener {
                 Toast.makeText(activity, it.localizedMessage, Toast.LENGTH_SHORT).show()
             }
@@ -40,9 +48,7 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
         userMap.put("userSurname", userSurname)
         userMap.put("phone", phone)
         userMap.put("email", email)
-        firestore.collection("Users").add(userMap).addOnSuccessListener {
-
-        }
+        firestore.collection("Users").document(email).set(userMap)
     }
 
 }
