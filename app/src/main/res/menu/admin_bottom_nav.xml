@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Ana Sayfa"/>
-    <item android:title="Ürünler"/>
-    <item android:title="Yeni"/>
+    <item android:title="Ana Sayfa"
+        android:id="@+id/adminHomeFragment"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="Ürünler"
+        android:id="@+id/adminProductFragment"
+        android:icon="@drawable/ic_baseline_category_24"/>
+    <item android:title="Yeni"
+        android:id="@+id/adminNewProductFragment"
+        android:icon="@drawable/ic_baseline_add_box_24"/>
 
 </menu>

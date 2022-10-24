@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav"
+    app:startDestination="@id/adminHomeFragment">
+
+    <fragment
+        android:id="@+id/adminHomeFragment"
+        android:name="com.ugurcangal.lufian.view.admin.AdminHomeFragment"
+        android:label="fragment_admin_home"
+        tools:layout="@layout/fragment_admin_home" />
+    <fragment
+        android:id="@+id/adminProductFragment"
+        android:name="com.ugurcangal.lufian.view.admin.AdminProductFragment"
+        android:label="fragment_admin_product"
+        tools:layout="@layout/fragment_admin_product" />
+    <fragment
+        android:id="@+id/adminNewProductFragment"
+        android:name="com.ugurcangal.lufian.view.admin.AdminNewProductFragment"
+        android:label="fragment_admin_new_product"
+        tools:layout="@layout/fragment_admin_new_product" >
+        <action
+            android:id="@+id/action_adminNewProductFragment_to_adminHomeFragment"
+            app:destination="@id/adminHomeFragment" />
+    </fragment>
+</navigation>
