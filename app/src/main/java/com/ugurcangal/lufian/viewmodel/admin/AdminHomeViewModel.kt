@@ -20,11 +20,12 @@ class AdminHomeViewModel : ViewModel() {
                 val productArrayList2 = ArrayList<Product>()
 
                 for (document in documents){
+                    val id = document.id
                     val name = document.get("name") as String
                     val price = document.get("price") as String
                     val imageUrl = document.get("downloadUrl")
 
-                    val product = Product(name,price,imageUrl.toString())
+                    val product = Product(id,name,price,imageUrl.toString())
                     productArrayList2.add(product)
                     productArrayList.value = productArrayList2
                 }

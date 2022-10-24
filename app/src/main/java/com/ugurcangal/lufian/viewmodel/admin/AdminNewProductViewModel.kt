@@ -23,7 +23,7 @@ class AdminNewProductViewModel : ViewModel() {
         category: String
     ) {
         val uuid = UUID.randomUUID()
-        val imageName = "$uuid.jpg"
+        val imageName = productName
 
         val reference = storage.reference
         val imageReference = reference.child("images").child(imageName)
