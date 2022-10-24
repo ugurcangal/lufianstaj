@@ -1,8 +1,9 @@
-package com.ugurcangal.lufian
+package com.ugurcangal.lufian.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.ugurcangal.lufian.R
 import com.ugurcangal.lufian.databinding.ActivityUserBinding
 import com.ugurcangal.lufian.view.user.UserBasketFragment
 import com.ugurcangal.lufian.view.user.UserHomeFragment

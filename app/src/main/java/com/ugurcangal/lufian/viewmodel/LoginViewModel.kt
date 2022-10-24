@@ -1,15 +1,13 @@
 package com.ugurcangal.lufian.viewmodel
 
-import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.ugurcangal.lufian.AdminActivity
-import com.ugurcangal.lufian.LoginActivity
-import com.ugurcangal.lufian.UserActivity
+import com.ugurcangal.lufian.view.activity.AdminActivity
+import com.ugurcangal.lufian.view.activity.LoginActivity
+import com.ugurcangal.lufian.view.activity.UserActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
