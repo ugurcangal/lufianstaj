@@ -7,6 +7,15 @@
     tools:context=".view.admin.AdminNewProductFragment">
 
     <ImageView
+        android:id="@+id/logoutBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_logout_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="10dp"/>
+
+    <ImageView
         android:id="@+id/addImageview"
         android:src="@drawable/ic_baseline_add_a_photo_24"
         android:layout_marginTop="30dp"

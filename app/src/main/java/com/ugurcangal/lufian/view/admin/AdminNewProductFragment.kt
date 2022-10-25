@@ -1,6 +1,7 @@
 package com.ugurcangal.lufian.view.admin
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.google.firebase.storage.ktx.storage
 import com.ugurcangal.lufian.BaseFragment
 import com.ugurcangal.lufian.R
 import com.ugurcangal.lufian.databinding.FragmentAdminNewProductBinding
+import com.ugurcangal.lufian.view.activity.LoginActivity
 import com.ugurcangal.lufian.viewmodel.admin.AdminNewProductViewModel
 import java.util.*
 
@@ -69,6 +71,12 @@ class AdminNewProductFragment :
             }
 
 
+        }
+
+        binding.logoutBtn.setOnClickListener {
+            val intent = Intent(context,LoginActivity::class.java)
+            startActivity(intent)
+            viewModel.logout()
         }
 
     }

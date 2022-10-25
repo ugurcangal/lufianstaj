@@ -66,6 +66,7 @@ class AdminHomeAdapter() : RecyclerView.Adapter<AdminHomeAdapter.AdminHomeViewHo
                     storage.reference.child("images/${product.name}").delete()
                     firestore.collection("Product").document(product.id).delete().addOnSuccessListener {
                         Toast.makeText(holder.itemView.context, "Ürün Başarıyla Silindi", Toast.LENGTH_SHORT).show()
+                        notifyDataSetChanged()
                     }
 
                 }.create()

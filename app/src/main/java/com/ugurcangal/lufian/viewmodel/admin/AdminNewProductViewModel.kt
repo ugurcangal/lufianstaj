@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AdminNewProductViewModel @Inject constructor() : ViewModel() {
 
+    private val auth = Firebase.auth
     private val firestore = Firebase.firestore
     private val storage = Firebase.storage
 
@@ -53,5 +55,9 @@ class AdminNewProductViewModel @Inject constructor() : ViewModel() {
                 Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun logout(){
+        auth.signOut()
     }
 }
