@@ -2,13 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Ana Sayfa"
-        android:id="@+id/userHome"
+        android:id="@+id/userHomeFragment"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item android:title="Sepet"
-        android:id="@+id/userBasket"
+        android:id="@+id/userBasketFragment"
         android:icon="@drawable/ic_baseline_shopping_basket_24"/>
+    <item android:title="Kategoriler"
+        android:id="@+id/userCategoryFragment"
+        android:icon="@drawable/ic_category"/>
+    <item android:title="Favoriler"
+        android:id="@+id/userFavoritesFragment"
+        android:icon="@drawable/ic_baseline_favorite_border_24"/>
     <item android:title="Profil"
-        android:id="@+id/userProfile"
+        android:id="@+id/userProfileFragment"
         android:icon="@drawable/ic_baseline_person_24"/>
 
 </menu>

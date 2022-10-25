@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_nav"
+    app:startDestination="@id/userHomeFragment">
+
+    <fragment
+        android:id="@+id/userHomeFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserHomeFragment"
+        android:label="fragment_user_home"
+        tools:layout="@layout/fragment_user_home" />
+    <fragment
+        android:id="@+id/userBasketFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserBasketFragment"
+        android:label="fragment_user_basket"
+        tools:layout="@layout/fragment_user_basket" />
+    <fragment
+        android:id="@+id/userCategoryFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserCategoryFragment"
+        android:label="fragment_user_category"
+        tools:layout="@layout/fragment_user_category" />
+    <fragment
+        android:id="@+id/userFavoritesFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserFavoritesFragment"
+        android:label="fragment_user_favorites"
+        tools:layout="@layout/fragment_user_favorites" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+</navigation>
