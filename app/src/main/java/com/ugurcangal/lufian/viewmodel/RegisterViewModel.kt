@@ -40,7 +40,7 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
             .show()
     }
 
-    fun addUser(userName: String, userSurname: String, phone: String, email: String) {
+    private fun addUser(userName: String, userSurname: String, phone: String, email: String) {
         val userMap = hashMapOf<String, Any>()
         userMap.put("userName", userName)
         userMap.put("userSurname", userSurname)

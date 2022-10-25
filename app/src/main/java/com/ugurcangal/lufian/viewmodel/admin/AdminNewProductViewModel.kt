@@ -7,9 +7,12 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.*
+import javax.inject.Inject
 
-class AdminNewProductViewModel : ViewModel() {
+@HiltViewModel
+class AdminNewProductViewModel @Inject constructor() : ViewModel() {
 
     private val firestore = Firebase.firestore
     private val storage = Firebase.storage

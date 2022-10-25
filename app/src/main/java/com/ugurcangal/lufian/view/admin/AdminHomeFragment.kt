@@ -33,8 +33,8 @@ class AdminHomeFragment : BaseFragment<FragmentAdminHomeBinding,AdminHomeViewMod
 
     private fun observeProductList(){
         viewModel.observeProductList().observe(viewLifecycleOwner){
-            homeAdapter.setList(it)
-            homeAdapter.notifyDataSetChanged()
+            homeAdapter.differ.submitList(it)
+
         }
     }
 

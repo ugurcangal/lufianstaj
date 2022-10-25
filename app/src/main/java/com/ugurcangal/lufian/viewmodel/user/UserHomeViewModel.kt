@@ -1,6 +1,9 @@
 package com.ugurcangal.lufian.viewmodel.user
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class UserHomeViewModel : ViewModel() {
+@HiltViewModel
+class UserHomeViewModel @Inject constructor(): ViewModel() {
 }
