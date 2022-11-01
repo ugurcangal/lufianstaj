@@ -1,32 +1,28 @@
 package com.ugurcangal.lufian.view.adapter
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.ugurcangal.lufian.databinding.ProductItemBinding
+import com.ugurcangal.lufian.databinding.AdminProductItemBinding
 import com.ugurcangal.lufian.model.Product
-import kotlin.coroutines.coroutineContext
 
 class AdminHomeAdapter() : RecyclerView.Adapter<AdminHomeAdapter.AdminHomeViewHolder>() {
 
     private var productList = ArrayList<Product>()
 
-    class AdminHomeViewHolder(val binding: ProductItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class AdminHomeViewHolder(val binding: AdminProductItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdminHomeViewHolder {
-        val binding = ProductItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = AdminProductItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return AdminHomeViewHolder(binding)
 
     }
