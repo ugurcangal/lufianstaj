@@ -25,19 +25,19 @@ class UserFavoritesFragment : BaseFragment<FragmentUserFavoritesBinding,UserFavo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observeProductList()
+
         viewModel.getFavoriteProduct()
-        userFavoriteAdapter = UserFavoriteAdapter(list)
+        observeProductList()
 
-
-        binding.userFavRecycler.layoutManager = GridLayoutManager(context,2,
-            GridLayoutManager.VERTICAL,false)
-        binding.userFavRecycler.adapter = userFavoriteAdapter
     }
 
     private fun observeProductList(){
         viewModel.observeProductList().observe(viewLifecycleOwner){
+            userFavoriteAdapter = UserFavoriteAdapter(it)
             userFavoriteAdapter.list = it
+            binding.userFavRecycler.layoutManager = GridLayoutManager(context,2,
+                GridLayoutManager.VERTICAL,false)
+            binding.userFavRecycler.adapter = userFavoriteAdapter
         }
     }
 

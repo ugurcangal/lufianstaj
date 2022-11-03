@@ -19,6 +19,11 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>(
         get() = _binding as VB
     lateinit var viewModel : VM
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[getViewModel()]
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +32,7 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>(
         _binding = bindingInflater.invoke(inflater)
         if(_binding == null)
             throw  IllegalArgumentException("Binding cannot be null")
-        viewModel = ViewModelProvider(this)[getViewModel()]
+
 
         return binding.root
     }

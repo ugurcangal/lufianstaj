@@ -24,6 +24,8 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding,UserProfileV
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getUserProfileInfo(binding)
+
         binding.logoutBtn.setOnClickListener {
             Firebase.auth.signOut()
             val intent = Intent(context,LoginActivity::class.java)
@@ -32,7 +34,9 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding,UserProfileV
 
         }
 
-        viewModel.getUserProfileInfo(binding)
+        binding.profileUpdateBtn.setOnClickListener {
+            viewModel.updateUserProfileInfo(binding)
+        }
 
     }
 

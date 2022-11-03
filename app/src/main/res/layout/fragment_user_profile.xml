@@ -103,10 +103,20 @@
             android:id="@+id/editTextAdres"
             android:layout_width="330dp"
             android:layout_height="120dp"
-            android:text="sdklfjsdklf"
             android:background="#E8E8E8"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/profileUpdateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bilgileri Güncelle"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextAdresLayout"/>
 
 
 
@@ -117,8 +127,9 @@
         android:layout_height="wrap_content"
         android:text="Logout"
         android:textAllCaps="false"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/profileUpdateBtn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
