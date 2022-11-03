@@ -3,6 +3,7 @@ package com.ugurcangal.lufian.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,10 @@ class UserHomeAdapter : RecyclerView.Adapter<UserHomeAdapter.UserHomeViewHolder>
         item.productName.text = product.name
         item.productPrice.text = product.price + " " +"TL"
         Glide.with(holder.itemView.context).load(product.imageUrl).into(item.productImage)
+
+        holder.itemView.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_userHomeFragment_to_userProductFragment)
+        }
 
 
 

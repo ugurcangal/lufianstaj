@@ -9,7 +9,11 @@
         android:id="@+id/userHomeFragment"
         android:name="com.ugurcangal.lufian.view.user.UserHomeFragment"
         android:label="fragment_user_home"
-        tools:layout="@layout/fragment_user_home" />
+        tools:layout="@layout/fragment_user_home" >
+        <action
+            android:id="@+id/action_userHomeFragment_to_userProductFragment"
+            app:destination="@id/userProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userBasketFragment"
         android:name="com.ugurcangal.lufian.view.user.UserBasketFragment"
@@ -24,10 +28,19 @@
         android:id="@+id/userFavoritesFragment"
         android:name="com.ugurcangal.lufian.view.user.UserFavoritesFragment"
         android:label="fragment_user_favorites"
-        tools:layout="@layout/fragment_user_favorites" />
+        tools:layout="@layout/fragment_user_favorites" >
+        <action
+            android:id="@+id/action_userFavoritesFragment_to_userProductFragment"
+            app:destination="@id/userProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.ugurcangal.lufian.view.user.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/userProductFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserProductFragment"
+        android:label="fragment_user_product"
+        tools:layout="@layout/fragment_user_product" />
 </navigation>

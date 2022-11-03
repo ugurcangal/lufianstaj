@@ -19,7 +19,6 @@ import com.ugurcangal.lufian.viewmodel.user.UserFavoritesViewModel
 class UserFavoritesFragment : BaseFragment<FragmentUserFavoritesBinding,UserFavoritesViewModel>(FragmentUserFavoritesBinding::inflate) {
 
     private lateinit var userFavoriteAdapter: UserFavoriteAdapter
-    var list : ArrayList<Product> = arrayListOf()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,10 +33,10 @@ class UserFavoritesFragment : BaseFragment<FragmentUserFavoritesBinding,UserFavo
     private fun observeProductList(){
         viewModel.observeProductList().observe(viewLifecycleOwner){
             userFavoriteAdapter = UserFavoriteAdapter(it)
-            userFavoriteAdapter.list = it
             binding.userFavRecycler.layoutManager = GridLayoutManager(context,2,
                 GridLayoutManager.VERTICAL,false)
             binding.userFavRecycler.adapter = userFavoriteAdapter
+            userFavoriteAdapter.notifyDataSetChanged()
         }
     }
 
