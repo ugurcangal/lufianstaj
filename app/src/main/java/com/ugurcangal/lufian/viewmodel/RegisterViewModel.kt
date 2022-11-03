@@ -33,6 +33,7 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
                 activity.finishAffinity()
                 activity.finish()
                 addUser(userName,userSurname,phone, email)
+                addFavoritesDocument(email)
             }.addOnFailureListener {
                 Toast.makeText(activity, it.localizedMessage, Toast.LENGTH_SHORT).show()
             }
@@ -47,6 +48,14 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
         userMap.put("phone", phone)
         userMap.put("email", email)
         firestore.collection("Users").document(email).set(userMap)
+    }
+
+    private fun addFavoritesDocument(email: String){
+        val favoritesMap = hashMapOf<String,Any>()
+        val favorites = ArrayList<Any>()
+        favorites.add("AAAAAAAAAAAAAAAA")
+        favoritesMap.put("favorites",favorites)
+        firestore.collection("Favorites").document(email).set(favoritesMap)
     }
 
 }

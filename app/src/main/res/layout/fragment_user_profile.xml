@@ -7,6 +7,109 @@
     tools:context=".view.user.UserProfileFragment">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameEditTextLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Ad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEditText"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:enabled="false"
+            android:text="sdklfjsdklf"
+            android:background="#E8E8E8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextSurnameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Soyad"
+        app:layout_constraintTop_toBottomOf="@id/nameEditTextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSurname"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:enabled="false"
+            android:text="sdklfjsdklf"
+            android:background="#E8E8E8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextPhoneLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Telefon"
+        app:layout_constraintTop_toBottomOf="@id/editTextSurnameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:enabled="false"
+            android:text="123456679"
+            android:inputType="phone"
+            android:background="#E8E8E8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextEmailLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Email"
+        app:layout_constraintTop_toBottomOf="@id/editTextPhoneLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:enabled="false"
+            android:text="admin@lufian.com"
+            android:background="#E8E8E8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextAdresLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Adres"
+        app:layout_constraintTop_toBottomOf="@id/editTextEmailLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAdres"
+            android:layout_width="330dp"
+            android:layout_height="120dp"
+            android:text="sdklfjsdklf"
+            android:background="#E8E8E8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     <Button
         android:id="@+id/logoutBtn"
