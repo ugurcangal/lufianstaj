@@ -42,14 +42,10 @@ class RegisterViewModel @Inject constructor() : ViewModel() {
 
     private fun addUser(userName: String, userSurname: String, phone: String, email: String) {
         val userMap = hashMapOf<String, Any>()
-        val favorites = arrayListOf<String>()
-        val basket = arrayListOf<String>()
         userMap.put("userName", userName)
         userMap.put("userSurname", userSurname)
         userMap.put("phone", phone)
         userMap.put("email", email)
-        userMap.put("favorites", favorites)
-        userMap.put("basket", basket)
         firestore.collection("Users").document(email).set(userMap)
     }
 

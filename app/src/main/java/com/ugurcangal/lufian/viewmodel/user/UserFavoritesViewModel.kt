@@ -8,6 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.ugurcangal.lufian.model.Product
+import com.ugurcangal.lufian.view.adapter.UserFavoriteAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +21,6 @@ class UserFavoritesViewModel @Inject constructor() : ViewModel() {
     var favoritesList = MutableLiveData<ArrayList<Product>>()
 
     fun getFavoriteProduct(){
-        viewModelScope.launch {
             firestore.collection("Product").addSnapshotListener { value, error ->
                 value?.let {
                     val documents = value.documents
@@ -28,7 +28,7 @@ class UserFavoritesViewModel @Inject constructor() : ViewModel() {
                     val productArrayList2 = ArrayList<Product>()
 
                     for (document in documents) {
-                        firestore.collection("Users").document(auth.currentUser!!.email.toString()).addSnapshotListener { value, error ->
+                        firestore.collection("Favorites").document(auth.currentUser!!.email.toString()).addSnapshotListener { value, error ->
                             value?.let {
                                 var favorites: ArrayList<String> = it.data?.get("favorites") as ArrayList<String>
 
@@ -44,13 +44,9 @@ class UserFavoritesViewModel @Inject constructor() : ViewModel() {
                                 }
                             }
                         }
-
-
                     }
                 }
-
             }
-        }
     }
 
     fun observeProductList() : LiveData<ArrayList<Product>> {

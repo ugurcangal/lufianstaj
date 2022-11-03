@@ -14,7 +14,8 @@ import com.google.firebase.ktx.Firebase
 import com.ugurcangal.lufian.databinding.UserProductItemBinding
 import com.ugurcangal.lufian.model.Product
 
-class UserFavoriteAdapter: RecyclerView.Adapter<UserFavoriteAdapter.UserFavoriteViewHolder>() {
+class UserFavoriteAdapter(var list : ArrayList<Product>): RecyclerView.Adapter<UserFavoriteAdapter.UserFavoriteViewHolder>() {
+
 
     class UserFavoriteViewHolder(val binding: UserProductItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -39,7 +40,7 @@ class UserFavoriteAdapter: RecyclerView.Adapter<UserFavoriteAdapter.UserFavorite
     val differ = AsyncListDiffer(this, diffUtil)
 
     override fun onBindViewHolder(holder: UserFavoriteViewHolder, position: Int) {
-        val product = differ.currentList[position]
+        val product = list[position]
         val item = holder.binding
         val firestore = Firebase.firestore
         val auth = Firebase.auth
@@ -47,42 +48,38 @@ class UserFavoriteAdapter: RecyclerView.Adapter<UserFavoriteAdapter.UserFavorite
         item.productPrice.text = product.price + " " + "TL"
         Glide.with(holder.itemView.context).load(product.imageUrl).into(item.productImage)
 
-        item.addToBasketBtn.setOnClickListener {
 
-        }
 
-        var favorites = ArrayList<String>()
-        firestore.collection("Users").document(auth.currentUser!!.email.toString())
-            .addSnapshotListener { value, error ->
-                value?.let {
-                    favorites = it.get("favorites") as ArrayList<String>
-                    if (favorites.contains(product.id)) {
-                        item.favoriteButton.visibility = View.GONE
-                        item.favoriteDeleteButton.visibility = View.VISIBLE
-                    } else {
-                        item.favoriteButton.visibility = View.VISIBLE
-                        item.favoriteDeleteButton.visibility = View.GONE
-                    }
+        var favorites = ArrayList<Any>()
+        val favoritesMap = HashMap<String,Any>()
+        firestore.collection("Favorites").document(auth.currentUser!!.email.toString()).addSnapshotListener { value, error ->
+            value?.let {
+                favorites = it.get("favorites") as ArrayList<Any>
+                if (favorites.contains(product.id)){
+                    item.favoriteButton.visibility = View.GONE
+                    item.favoriteDeleteButton.visibility = View.VISIBLE
+                }else{
+                    item.favoriteButton.visibility = View.VISIBLE
+                    item.favoriteDeleteButton.visibility = View.GONE
                 }
-            }
 
-        item.favoriteButton.setOnClickListener {
-            favorites.add(product.id)
-            firestore.collection("Users").document(auth.currentUser!!.email.toString())
-                .set(favorites)
-            it.visibility = View.GONE
-            item.favoriteDeleteButton.visibility = View.VISIBLE
+            }
         }
+
+
         item.favoriteDeleteButton.setOnClickListener {
+            list.clear()
             favorites.remove(product.id)
-            firestore.collection("Users").document(auth.currentUser!!.email.toString())
-                .update("favorites",favorites)
-            item.favoriteButton.visibility = View.VISIBLE
+            favoritesMap.put("favorites",favorites)
+            firestore.collection("Favorites").document(auth.currentUser!!.email.toString()).update(favoritesMap).addOnSuccessListener {
+            }
 
         }
     }
 
     override fun getItemCount(): Int {
-        return differ.currentList.size
+        return list.size
     }
+
+
 }

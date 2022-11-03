@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ugurcangal.lufian.BaseFragment
 import com.ugurcangal.lufian.R
 import com.ugurcangal.lufian.databinding.FragmentUserFavoritesBinding
+import com.ugurcangal.lufian.model.Product
 import com.ugurcangal.lufian.view.adapter.UserFavoriteAdapter
 import com.ugurcangal.lufian.view.adapter.UserHomeAdapter
 import com.ugurcangal.lufian.viewmodel.user.UserFavoritesViewModel
@@ -17,14 +19,16 @@ import com.ugurcangal.lufian.viewmodel.user.UserFavoritesViewModel
 class UserFavoritesFragment : BaseFragment<FragmentUserFavoritesBinding,UserFavoritesViewModel>(FragmentUserFavoritesBinding::inflate) {
 
     private lateinit var userFavoriteAdapter: UserFavoriteAdapter
+    var list : ArrayList<Product> = arrayListOf()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getFavoriteProduct()
-        userFavoriteAdapter = UserFavoriteAdapter()
         observeProductList()
+        viewModel.getFavoriteProduct()
+        userFavoriteAdapter = UserFavoriteAdapter(list)
+
 
         binding.userFavRecycler.layoutManager = GridLayoutManager(context,2,
             GridLayoutManager.VERTICAL,false)
@@ -33,7 +37,7 @@ class UserFavoritesFragment : BaseFragment<FragmentUserFavoritesBinding,UserFavo
 
     private fun observeProductList(){
         viewModel.observeProductList().observe(viewLifecycleOwner){
-            userFavoriteAdapter.differ.submitList(it)
+            userFavoriteAdapter.list = it
         }
     }
 
