@@ -1,18 +1,14 @@
 package com.ugurcangal.lufian.viewmodel.user
 
-import androidx.lifecycle.ViewModel
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import android.content.Context
+import android.widget.Toast
+import com.ugurcangal.lufian.BaseViewModel
 import com.ugurcangal.lufian.databinding.FragmentUserProfileBinding
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class UserProfileViewModel @Inject constructor() : ViewModel() {
-
-    val firestore = Firebase.firestore
-    val auth = Firebase.auth
+class UserProfileViewModel @Inject constructor() : BaseViewModel() {
 
 
     fun getUserProfileInfo(binding: FragmentUserProfileBinding){
@@ -31,8 +27,10 @@ class UserProfileViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun updateUserProfileInfo(binding: FragmentUserProfileBinding){
-        firestore.collection("Users").document(auth.currentUser!!.email.toString()).update("address",binding.editTextAdres.text.toString())
+    fun updateUserProfileInfo(binding: FragmentUserProfileBinding,context: Context){
+        firestore.collection("Users").document(auth.currentUser!!.email.toString()).update("address",binding.editTextAdres.text.toString()).addOnSuccessListener {
+            Toast.makeText(context, "Bilgiler Başarıyla Güncellendi.", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

@@ -35,7 +35,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding,UserProfileV
         }
 
         binding.profileUpdateBtn.setOnClickListener {
-            viewModel.updateUserProfileInfo(binding)
+            context?.let {  viewModel.updateUserProfileInfo(binding, it) }
         }
 
     }

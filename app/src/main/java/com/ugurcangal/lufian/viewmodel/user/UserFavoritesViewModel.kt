@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.ugurcangal.lufian.BaseViewModel
 import com.ugurcangal.lufian.model.Product
 import com.ugurcangal.lufian.view.adapter.UserFavoriteAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,10 +15,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserFavoritesViewModel @Inject constructor() : ViewModel() {
+class UserFavoritesViewModel @Inject constructor() : BaseViewModel() {
 
-    private val firestore = Firebase.firestore
-    private val auth = Firebase.auth
     var favoritesList = MutableLiveData<ArrayList<Product>>()
 
     fun getFavoriteProduct(){

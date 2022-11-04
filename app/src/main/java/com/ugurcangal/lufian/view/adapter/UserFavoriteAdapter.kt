@@ -3,6 +3,7 @@ package com.ugurcangal.lufian.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +12,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.ugurcangal.lufian.R
 import com.ugurcangal.lufian.databinding.UserProductItemBinding
 import com.ugurcangal.lufian.model.Product
+import com.ugurcangal.lufian.view.user.UserFavoritesFragmentDirections
 
 class UserFavoriteAdapter(var list : ArrayList<Product>): RecyclerView.Adapter<UserFavoriteAdapter.UserFavoriteViewHolder>() {
 
@@ -47,6 +50,11 @@ class UserFavoriteAdapter(var list : ArrayList<Product>): RecyclerView.Adapter<U
         item.productName.text = product.name
         item.productPrice.text = product.price + " " + "TL"
         Glide.with(holder.itemView.context).load(product.imageUrl).into(item.productImage)
+
+        item.root.setOnClickListener {
+            val action = UserFavoritesFragmentDirections.actionUserFavoritesFragmentToUserProductFragment(product.id)
+            Navigation.findNavController(it).navigate(action)
+        }
 
 
 

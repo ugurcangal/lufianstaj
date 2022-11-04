@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.ugurcangal.lufian.BaseViewModel
 import com.ugurcangal.lufian.model.Product
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserHomeViewModel @Inject constructor(): ViewModel() {
+class UserHomeViewModel @Inject constructor(): BaseViewModel() {
 
-    private val firestore = Firebase.firestore
     var productArrayList = MutableLiveData<ArrayList<Product>>()
 
     fun getProduct() {

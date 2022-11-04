@@ -17,6 +17,7 @@ import com.ugurcangal.lufian.databinding.AdminProductItemBinding
 import com.ugurcangal.lufian.databinding.UserProductItemBinding
 import com.ugurcangal.lufian.model.Product
 import com.ugurcangal.lufian.model.Users
+import com.ugurcangal.lufian.view.user.UserHomeFragmentDirections
 
 class UserHomeAdapter : RecyclerView.Adapter<UserHomeAdapter.UserHomeViewHolder>(){
 
@@ -50,7 +51,8 @@ class UserHomeAdapter : RecyclerView.Adapter<UserHomeAdapter.UserHomeViewHolder>
         Glide.with(holder.itemView.context).load(product.imageUrl).into(item.productImage)
 
         holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_userHomeFragment_to_userProductFragment)
+            val action = UserHomeFragmentDirections.actionUserHomeFragmentToUserProductFragment(product.id)
+            Navigation.findNavController(it).navigate(action)
         }
 
 
