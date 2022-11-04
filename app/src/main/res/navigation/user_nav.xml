@@ -13,8 +13,7 @@
         <action
             android:id="@+id/action_userHomeFragment_to_userProductFragment"
             app:destination="@id/userProductFragment"
-            app:popUpTo="@id/userHomeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/userHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/userBasketFragment"
@@ -34,8 +33,7 @@
         <action
             android:id="@+id/action_userFavoritesFragment_to_userProductFragment"
             app:destination="@id/userProductFragment"
-            app:popUpTo="@id/userFavoritesFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/userFavoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
