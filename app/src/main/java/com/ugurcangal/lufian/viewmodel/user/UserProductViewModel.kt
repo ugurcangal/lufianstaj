@@ -57,9 +57,12 @@ class UserProductViewModel @Inject constructor() : BaseViewModel(){
     }
 
     fun getBasket(binding: FragmentUserProductBinding,productId: String){
+//        var basketMap: HashMap<String, String>
         firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get().addOnSuccessListener {
             if (it.data?.isNotEmpty() == true){
                 basketArray = it.get("basket") as ArrayList<String>
+//                basketMap = it.get("size") as HashMap<String, String>
+//                println(productId+ " " + basketMap.get(productId))
                 if (basketArray.contains(productId)){
                     binding.addToBasketBtn.isEnabled = false
                 }
@@ -69,6 +72,7 @@ class UserProductViewModel @Inject constructor() : BaseViewModel(){
 
     fun addToBasket(productId: String,binding: FragmentUserProductBinding){
         val basket = hashMapOf<String,Any>()
+//        var basketMap = hashMapOf<String,String>()
         firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get().addOnSuccessListener {
             if (it.data?.isNotEmpty() == true){
                 basketArray = it.get("basket") as ArrayList<String>
@@ -77,7 +81,10 @@ class UserProductViewModel @Inject constructor() : BaseViewModel(){
             }
         }
         basketArray.add(productId)
+
+//        basketMap.put(productId,"M")
         basket.put("basket",basketArray)
+//        basket.put("size", basketMap)
         firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update(basket).addOnSuccessListener {
             binding.addToBasketBtn.isEnabled = false
         }
