@@ -109,57 +109,61 @@
                 android:layout_marginTop="30dp"/>
 
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="10dp"
-                app:layout_constraintBottom_toBottomOf="@id/productSizeTV"
                 android:layout_marginEnd="24dp"
-                >
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/productSizeTV"
+                app:layout_constraintTop_toTopOf="@id/productSizeTV"
+                app:layout_constraintEnd_toEndOf="parent">
 
                 <RadioButton
+                    android:id="@+id/sizeSRB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:background="@drawable/radio_selector"
-                    android:text="S"/>
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:button="@null"
                     android:gravity="center"
+                    android:text="S"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/sizeMRB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:background="@drawable/radio_selector"
-                    android:text="M"/>
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="M"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <RadioButton
+                    android:id="@+id/sizeLRB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@null"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:background="@drawable/radio_selector"
-                    android:text="L"/>
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="L"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <RadioButton
+                    android:id="@+id/sizeXLRB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@null"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:background="@drawable/radio_selector"
-                    android:text="XL"/>
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="XL"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
 
             </RadioGroup>

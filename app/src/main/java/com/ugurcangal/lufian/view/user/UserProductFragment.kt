@@ -47,7 +47,15 @@ class UserProductFragment : BaseFragment<FragmentUserProductBinding,UserProductV
         }
 
         binding.addToBasketBtn.setOnClickListener {
-            viewModel.addToBasket(productId,binding)
+            var size = ""
+            when(binding.radioGroup.checkedRadioButtonId){
+                R.id.sizeSRB -> {size = "S"}
+                R.id.sizeMRB -> {size = "M"}
+                R.id.sizeLRB -> {size = "L"}
+                R.id.sizeXLRB -> {size = "XL"}
+            }
+            context?.let { context -> viewModel.addToBasket(context,productId,binding,size) }
+            binding.radioGroup.clearCheck()
         }
 
 
