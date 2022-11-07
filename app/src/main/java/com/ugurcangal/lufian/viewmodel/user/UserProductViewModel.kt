@@ -12,12 +12,16 @@ class UserProductViewModel @Inject constructor() : BaseViewModel(){
 
     private var favorites = ArrayList<Any>()
     private val favoritesMap = HashMap<String,Any>()
+    private var basketArray = arrayListOf<String>()
 
     fun getProduct(binding: FragmentUserProductBinding,productId: String,view : View){
         firestore.collection("Product").document(productId).get().addOnSuccessListener {
             binding.imageProgress.visibility = View.GONE
-            binding.productName.text = it.get("name").toString().uppercase()
+            binding.productName.text = it.get("name").toString().replaceFirstChar {
+                it.uppercase()
+            }
             binding.productPrice.text = it.get("price").toString() + " TL"
+            binding.productColor.text = "Renk : " + it.get("color").toString()
             Glide.with(view).load(it.get("downloadUrl").toString()).into(binding.productImage)
         }
     }
@@ -50,6 +54,33 @@ class UserProductViewModel @Inject constructor() : BaseViewModel(){
         firestore.collection("Favorites").document(auth.currentUser!!.email.toString()).update(favoritesMap)
         view.visibility = View.GONE
         binding.favoriteButton.visibility = View.VISIBLE
+    }
+
+    fun getBasket(binding: FragmentUserProductBinding,productId: String){
+        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get().addOnSuccessListener {
+            if (it.data?.isNotEmpty() == true){
+                basketArray = it.get("basket") as ArrayList<String>
+                if (basketArray.contains(productId)){
+                    binding.addToBasketBtn.isEnabled = false
+                }
+            }
+        }
+    }
+
+    fun addToBasket(productId: String,binding: FragmentUserProductBinding){
+        val basket = hashMapOf<String,Any>()
+        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get().addOnSuccessListener {
+            if (it.data?.isNotEmpty() == true){
+                basketArray = it.get("basket") as ArrayList<String>
+            }else{
+                firestore.collection("Basket").document(auth.currentUser!!.email.toString()).set(basket)
+            }
+        }
+        basketArray.add(productId)
+        basket.put("basket",basketArray)
+        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update(basket).addOnSuccessListener {
+            binding.addToBasketBtn.isEnabled = false
+        }
     }
 
 }

@@ -67,9 +67,11 @@
 
             <TextView
                 android:id="@+id/productName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
                 android:text="Lufian"
+                android:background="@color/ic_launcher_background"
+                android:gravity="center"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:fontFamily="sans-serif-medium"
@@ -80,18 +82,17 @@
 
 
             <TextView
-                android:id="@+id/productName1"
+                android:id="@+id/productColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Product Name"
+                android:text="Renk : "
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:fontFamily="sans-serif-medium"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/productName"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="150dp"/>
+                android:layout_marginTop="30dp"/>
 
             <TextView
                 android:id="@+id/productName2"
@@ -103,7 +104,7 @@
                 android:fontFamily="sans-serif-medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productName1"
+                app:layout_constraintTop_toBottomOf="@id/productColor"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="80dp"/>
 
@@ -133,7 +134,7 @@
             android:textColor="@color/black"/>
 
         <Button
-            android:id="@+id/addToBasket"
+            android:id="@+id/addToBasketBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sepete Ekle"

@@ -2,15 +2,11 @@ package com.ugurcangal.lufian.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.ugurcangal.lufian.R
 import com.ugurcangal.lufian.databinding.ActivityUserBinding
-import com.ugurcangal.lufian.view.user.UserBasketFragment
-import com.ugurcangal.lufian.view.user.UserHomeFragment
-import com.ugurcangal.lufian.view.user.UserProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
