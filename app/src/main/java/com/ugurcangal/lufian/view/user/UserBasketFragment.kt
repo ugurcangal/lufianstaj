@@ -19,6 +19,7 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getTotalPrice(binding)
         viewModel.getBasket()
         observeBasketList()
 
