@@ -71,15 +71,23 @@ class UserProductViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun addToBasket(context: Context,productId: String, binding: FragmentUserProductBinding, size: String) {
-
         val basketMap = HashMap<String,String>()
-        basketMap.put(productId,size)
-        basketArray.add(basketMap)
-
-        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",basketArray)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Ürün Sepete Eklendi.", Toast.LENGTH_SHORT).show()
-            }
+        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).set(basketMap)
+        firestore.collection("Product").document(productId).get().addOnSuccessListener {
+            var name = it.get("name").toString()
+            var downloadUrl = it.get("downloadUrl").toString()
+            var price = it.get("price").toString()
+            basketMap.put("id",productId)
+            basketMap.put("size", size)
+            basketMap.put("name",name)
+            basketMap.put("price",price)
+            basketMap.put("downloadUrl", downloadUrl)
+            basketArray.add(basketMap)
+            firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",basketArray)
+                .addOnSuccessListener {
+                    Toast.makeText(context, "Ürün Sepete Eklendi.", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 
 }

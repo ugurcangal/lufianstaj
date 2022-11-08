@@ -114,6 +114,7 @@
                 android:layout_height="36dp"
                 android:layout_marginEnd="24dp"
                 android:orientation="horizontal"
+                android:checkedButton="@id/sizeSRB"
                 app:layout_constraintBottom_toBottomOf="@id/productSizeTV"
                 app:layout_constraintTop_toTopOf="@id/productSizeTV"
                 app:layout_constraintEnd_toEndOf="parent">
