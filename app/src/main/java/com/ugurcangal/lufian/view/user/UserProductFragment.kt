@@ -30,7 +30,7 @@ class UserProductFragment : BaseFragment<FragmentUserProductBinding,UserProductV
             productId = UserProductFragmentArgs.fromBundle(it).productID
         }
 
-        viewModel.getBasket(binding, productId)
+        viewModel.basketControl()
         viewModel.getProduct(binding, productId, view)
         viewModel.favoriteControl(binding, productId)
 

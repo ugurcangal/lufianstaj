@@ -14,7 +14,7 @@ class UserProductViewModel @Inject constructor() : BaseViewModel() {
 
     private var favorites = ArrayList<Any>()
     private val favoritesMap = HashMap<String, Any>()
-    private var basketMap = HashMap<String, String>()
+    private var basketArray = ArrayList<HashMap<String,String>>()
 
     fun getProduct(binding: FragmentUserProductBinding, productId: String, view: View) {
         firestore.collection("Product").document(productId).get().addOnSuccessListener {
@@ -61,32 +61,22 @@ class UserProductViewModel @Inject constructor() : BaseViewModel() {
         binding.favoriteButton.visibility = View.VISIBLE
     }
 
-    fun getBasket(binding: FragmentUserProductBinding, productId: String) {
+    fun basketControl() {
         firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get()
             .addOnSuccessListener {
                 if (it.data?.isNotEmpty() == true) {
-                    basketMap = it.get("basket") as HashMap<String, String>
+                    basketArray = it.get("basket") as ArrayList<HashMap<String, String>>
                 }
             }
     }
 
     fun addToBasket(context: Context,productId: String, binding: FragmentUserProductBinding, size: String) {
-        val basket = hashMapOf<String, Any>()
 
-        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).get()
-            .addOnSuccessListener {
-                if (it.data?.isNotEmpty() == true) {
-                    basketMap = it.get("basket") as HashMap<String, String>
-                } else {
-                    firestore.collection("Basket").document(auth.currentUser!!.email.toString())
-                        .set(basket)
-                }
-            }
+        val basketMap = HashMap<String,String>()
+        basketMap.put(productId,size)
+        basketArray.add(basketMap)
 
-        basketMap.put(productId, size)
-        basket.put("basket", basketMap)
-
-        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).set(basket)
+        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",basketArray)
             .addOnSuccessListener {
                 Toast.makeText(context, "Ürün Sepete Eklendi.", Toast.LENGTH_SHORT).show()
             }
