@@ -1,5 +1,7 @@
 package com.ugurcangal.lufian.viewmodel.user
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -47,8 +49,27 @@ class UserBasketViewModel @Inject constructor() : BaseViewModel() {
         }
     }
 
+    fun completeOrder(context: Context){
+        firestore.collection("Users").document(auth.currentUser!!.email.toString()).addSnapshotListener { value, error ->
+            value?.let {
+                val address = it.data?.get("address")
+                if (address != null){
+                    val orderMap = HashMap<String,Any>()
+                    orderMap.put("address", address)
+                    orderMap.put("basket", basketList.value!!)
+                    orderMap.put("user",auth.currentUser!!.email.toString())
+                    firestore.collection("Orders").document().set(orderMap).addOnSuccessListener {
+                        firestore.collection("Basket").document(auth.currentUser!!.email.toString()).delete()
+                        basketList.value!!.clear()
+                    }
+                }else Toast.makeText(context, "Lütfen önce adres bilgilerinizi ekleyin!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     fun observeBasketList() : LiveData<ArrayList<HashMap<String,String>>>{
         return basketList
     }
+
 
 }

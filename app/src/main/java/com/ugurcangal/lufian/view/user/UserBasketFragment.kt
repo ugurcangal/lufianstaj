@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ugurcangal.lufian.BaseFragment
 import com.ugurcangal.lufian.R
@@ -22,7 +23,10 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
         viewModel.getTotalPrice(binding)
         viewModel.getBasket()
         observeBasketList()
-
+        binding.completeOrder.setOnClickListener {
+            viewModel.completeOrder(requireContext())
+            findNavController().navigate(R.id.userHomeFragment)
+        }
 
     }
 
@@ -32,6 +36,7 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
             binding.userBasketRV.layoutManager = LinearLayoutManager(context)
             binding.userBasketRV.adapter = userBasketAdapter
             userBasketAdapter.notifyDataSetChanged()
+
         }
     }
 
