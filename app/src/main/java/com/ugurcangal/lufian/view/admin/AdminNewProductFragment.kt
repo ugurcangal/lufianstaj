@@ -36,7 +36,7 @@ class AdminNewProductFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, 100)
+
 
 
         //Color
@@ -55,6 +55,7 @@ class AdminNewProductFragment :
 
         binding.addImageview.setOnClickListener {
             selectedImageLauncher.launch("image/*")
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, 100)
 
         }
         binding.uploadButton.setOnClickListener {

@@ -1,5 +1,6 @@
 package com.ugurcangal.lufian.view.user
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,12 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
         binding.completeOrder.setOnClickListener {
             viewModel.completeOrder(requireContext())
             findNavController().navigate(R.id.userHomeFragment)
+            val builderAlert = AlertDialog.Builder(it.context)
+            builderAlert.setTitle("Siparişiniz Oluşturulmuştur")
+            builderAlert.setMessage("Siparişiniz kargoya verildiğinde Sms ve Email olarak bilgilendirileceksiniz.")
+            builderAlert.setPositiveButton("Tamam"){dialogInterface, i ->
+                dialogInterface.dismiss()
+            }.create().show()
         }
 
     }
