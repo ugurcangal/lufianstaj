@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.user.UserCategoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="Kategoriler"
+        android:background="@color/ic_launcher_background"
+        android:textSize="16sp"
+        android:paddingLeft="10dp"
+        android:gravity="left|center"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    
+    <TextView
+        android:id="@+id/categorySweatBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Sweatshirt"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@drawable/line"
+        app:layout_constraintTop_toBottomOf="@id/categorySweatBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/categoryTshirtBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="T-Shirt"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintTop_toBottomOf="@id/categorySweatBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@drawable/line"
+        app:layout_constraintTop_toBottomOf="@id/categoryTshirtBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/categoryKazakBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Kazak"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintTop_toBottomOf="@id/categoryTshirtBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@drawable/line"
+        app:layout_constraintTop_toBottomOf="@id/categoryKazakBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/categoryMontBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Mont"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintTop_toBottomOf="@id/categoryKazakBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@drawable/line"
+        app:layout_constraintTop_toBottomOf="@id/categoryMontBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

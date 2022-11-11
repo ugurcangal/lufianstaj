@@ -24,7 +24,12 @@
         android:id="@+id/userCategoryFragment"
         android:name="com.ugurcangal.lufian.view.user.UserCategoryFragment"
         android:label="fragment_user_category"
-        tools:layout="@layout/fragment_user_category" />
+        tools:layout="@layout/fragment_user_category" >
+        <action
+            android:id="@+id/action_userCategoryFragment_to_userProductByCategoryFragment"
+            app:destination="@id/userProductByCategoryFragment"
+            app:popUpTo="@id/userCategoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userFavoritesFragment"
         android:name="com.ugurcangal.lufian.view.user.UserFavoritesFragment"
@@ -48,5 +53,16 @@
         <argument
             android:name="productID"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProductByCategoryFragment"
+        android:name="com.ugurcangal.lufian.view.user.UserProductsByCategoryFragment"
+        android:label="UserProductByCategoryFragment" >
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_userProductByCategoryFragment_to_userProductFragment"
+            app:destination="@id/userProductFragment" />
     </fragment>
 </navigation>
