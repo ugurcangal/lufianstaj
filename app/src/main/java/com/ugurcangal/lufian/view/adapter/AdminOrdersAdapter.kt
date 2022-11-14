@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -11,6 +12,8 @@ import com.google.firebase.storage.ktx.storage
 import com.ugurcangal.lufian.FirebaseInstance.firestore
 import com.ugurcangal.lufian.databinding.AdminOrderItemBinding
 import com.ugurcangal.lufian.model.Orders
+import com.ugurcangal.lufian.view.admin.AdminOrderFragment
+import com.ugurcangal.lufian.view.admin.AdminOrderFragmentDirections
 
 class AdminOrdersAdapter(val orderList : ArrayList<Orders>) : RecyclerView.Adapter<AdminOrdersAdapter.AdminOrdersViewHolder>() {
 
@@ -56,7 +59,8 @@ class AdminOrdersAdapter(val orderList : ArrayList<Orders>) : RecyclerView.Adapt
         }
 
         item.goToOrder.setOnClickListener {
-            //////////////////////////////////////////////////////////////////
+            val action = AdminOrderFragmentDirections.actionAdminOrderFragmentToAdminOrderDetailsFragment(order.id)
+            Navigation.findNavController(it).navigate(action)
         }
 
 
