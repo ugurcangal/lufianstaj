@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="#0F000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/basketIV"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:background="#83000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/userEmailTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="sans-serif-condensed"
+                app:layout_constraintTop_toTopOf="@id/basketIV"
+                app:layout_constraintStart_toEndOf="@id/basketIV"/>
+
+            <TextView
+                android:id="@+id/userAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Address"
+                android:textColor="#450A0A"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/basketIV"
+                app:layout_constraintTop_toBottomOf="@id/userEmailTxt" />
+
+            <TextView
+                android:id="@+id/goToOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/urunleri_gormek_icin_tikla"
+                android:textColor="#DF0D0D"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userAddress"
+                app:layout_constraintStart_toEndOf="@id/basketIV"/>
+
+            <ImageView
+                android:id="@+id/confirmOrderButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#2E9807"
+                android:background="@drawable/ic_baseline_check_24"
+                app:layout_constraintEnd_toStartOf="@id/rejectOrderButton"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/rejectOrderButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#F40A0A"
+                android:background="@drawable/ic_baseline_block_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

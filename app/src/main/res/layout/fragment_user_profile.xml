@@ -22,7 +22,6 @@
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:enabled="false"
-            android:text="sdklfjsdklf"
             android:background="#E8E8E8"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,7 +41,6 @@
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:enabled="false"
-            android:text="sdklfjsdklf"
             android:background="#E8E8E8"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +60,6 @@
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:enabled="false"
-            android:text="123456679"
             android:inputType="phone"
             android:background="#E8E8E8"
             />
@@ -83,7 +80,6 @@
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:enabled="false"
-            android:text="admin@lufian.com"
             android:background="#E8E8E8"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -121,15 +117,32 @@
 
 
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/logoutBtn"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:text="Logout"-->
+<!--        android:background="@drawable/ic_baseline_logout_24"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/profileUpdateBtn"/>-->
+
+    <TextView
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:textAllCaps="false"
+        android:drawableTop="@drawable/ic_baseline_logout_24"
+        android:text="@string/cikis_yap"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileUpdateBtn"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
