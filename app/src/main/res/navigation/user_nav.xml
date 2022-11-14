@@ -19,7 +19,11 @@
         android:id="@+id/userBasketFragment"
         android:name="com.ugurcangal.lufian.view.user.UserBasketFragment"
         android:label="fragment_user_basket"
-        tools:layout="@layout/fragment_user_basket" />
+        tools:layout="@layout/fragment_user_basket" >
+        <action
+            android:id="@+id/action_userBasketFragment_to_userProductFragment"
+            app:destination="@id/userProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userCategoryFragment"
         android:name="com.ugurcangal.lufian.view.user.UserCategoryFragment"

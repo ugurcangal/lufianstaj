@@ -20,8 +20,6 @@ import com.ugurcangal.lufian.viewmodel.user.UserProductViewModel
 class UserProductFragment : BaseFragment<FragmentUserProductBinding,UserProductViewModel>(FragmentUserProductBinding::inflate) {
 
     private lateinit var productId : String
-    private val firestore = Firebase.firestore
-    private val auth = Firebase.auth
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

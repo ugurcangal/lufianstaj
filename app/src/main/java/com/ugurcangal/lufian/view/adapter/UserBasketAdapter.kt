@@ -2,11 +2,13 @@ package com.ugurcangal.lufian.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ugurcangal.lufian.FirebaseInstance.auth
 import com.ugurcangal.lufian.FirebaseInstance.firestore
 import com.ugurcangal.lufian.databinding.UserBasketItemBinding
+import com.ugurcangal.lufian.view.user.UserBasketFragmentDirections
 
 class UserBasketAdapter(var basketList : ArrayList<HashMap<String,String>>) : RecyclerView.Adapter<UserBasketAdapter.BasketAdapterViewHolder>() {
 
@@ -31,6 +33,11 @@ class UserBasketAdapter(var basketList : ArrayList<HashMap<String,String>>) : Re
         item.basketProductPriceTV.text = product.get("price") + " TL"
         item.basketProductSizeTV.text = "Beden: " + product.get("size")
         Glide.with(holder.itemView.context).load(product.get("downloadUrl")).into(item.basketIV)
+
+        holder.itemView.setOnClickListener {
+            val action = UserBasketFragmentDirections.actionUserBasketFragmentToUserProductFragment(product.get("id").toString())
+            Navigation.findNavController(it).navigate(action)
+        }
 
 
         firestore.collection("Basket").document(auth.currentUser!!.email.toString()).addSnapshotListener { value, error ->
