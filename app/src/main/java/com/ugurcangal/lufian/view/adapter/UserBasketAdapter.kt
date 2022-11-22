@@ -24,19 +24,26 @@ class UserBasketAdapter(var basketList : ArrayList<HashMap<String,String>>) : Re
     override fun onBindViewHolder(holder: BasketAdapterViewHolder, position: Int) {
         val product = basketList[position]
         val item = holder.binding
+        val piece = basketList[position].get("piece").toString().toInt()
+        val price = product.get("price").toString().toInt()
 
 
-
+        item.pieceTxt.text = piece.toString()
         item.basketProductNameTV.text = product.get("name")?.replaceFirstChar {
             it.uppercase()
         }
-        item.basketProductPriceTV.text = product.get("price") + " TL"
+
+        item.basketProductPriceTV.text = (price * piece).toString() + " TL"
         item.basketProductSizeTV.text = "Beden: " + product.get("size")
         Glide.with(holder.itemView.context).load(product.get("downloadUrl")).into(item.basketIV)
 
         holder.itemView.setOnClickListener {
             val action = UserBasketFragmentDirections.actionUserBasketFragmentToUserProductFragment(product.get("id").toString())
             Navigation.findNavController(it).navigate(action)
+        }
+
+        if (item.pieceTxt.text == "1"){
+            item.pieceRemoveBtn.isEnabled = false
         }
 
 
@@ -50,6 +57,20 @@ class UserBasketAdapter(var basketList : ArrayList<HashMap<String,String>>) : Re
 
         item.deleteButton.setOnClickListener {
             availableList.remove(product)
+            firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",availableList)
+        }
+
+        item.pieceAddBtn.setOnClickListener {
+            val newPiece = piece!!.toInt() + 1
+            product.put("piece",newPiece.toString())
+            availableList.set(position, product)
+            firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",availableList)
+        }
+
+        item.pieceRemoveBtn.setOnClickListener {
+            val newPiece = piece!!.toInt() - 1
+            product.put("piece",newPiece.toString())
+            availableList.set(position, product)
             firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",availableList)
         }
 

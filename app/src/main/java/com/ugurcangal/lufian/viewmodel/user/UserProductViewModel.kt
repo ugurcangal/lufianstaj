@@ -82,6 +82,7 @@ class UserProductViewModel @Inject constructor() : BaseViewModel() {
             basketMap.put("name",name)
             basketMap.put("price",price)
             basketMap.put("downloadUrl", downloadUrl)
+            basketMap.put("piece", "1")
             basketArray.add(basketMap)
             firestore.collection("Basket").document(auth.currentUser!!.email.toString()).update("basket",basketArray)
                 .addOnSuccessListener {
