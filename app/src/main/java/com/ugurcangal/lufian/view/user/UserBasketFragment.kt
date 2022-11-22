@@ -25,14 +25,7 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
         viewModel.getBasket()
         observeBasketList()
         binding.completeOrder.setOnClickListener {
-            viewModel.completeOrder(requireContext())
-            findNavController().navigate(R.id.userHomeFragment)
-            val builderAlert = AlertDialog.Builder(it.context)
-            builderAlert.setTitle("Siparişiniz Oluşturulmuştur")
-            builderAlert.setMessage("Siparişiniz kargoya verildiğinde Sms ve Email olarak bilgilendirileceksiniz.")
-            builderAlert.setPositiveButton("Tamam"){dialogInterface, i ->
-                dialogInterface.dismiss()
-            }.create().show()
+            viewModel.completeOrder(requireContext(),it)
         }
 
     }

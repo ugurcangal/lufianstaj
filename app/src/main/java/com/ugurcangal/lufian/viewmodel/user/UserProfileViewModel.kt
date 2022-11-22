@@ -28,8 +28,12 @@ class UserProfileViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun updateUserProfileInfo(binding: FragmentUserProfileBinding,context: Context){
-        firestore.collection("Users").document(auth.currentUser!!.email.toString()).update("address",binding.editTextAdres.text.toString()).addOnSuccessListener {
-            Toast.makeText(context, "Bilgiler Başarıyla Güncellendi.", Toast.LENGTH_SHORT).show()
+        if (!binding.editTextAdres.text.isNullOrEmpty() && !binding.editTextAdres.text.isNullOrBlank()){
+            firestore.collection("Users").document(auth.currentUser!!.email.toString()).update("address",binding.editTextAdres.text.toString().trim()).addOnSuccessListener {
+                Toast.makeText(context, "Bilgiler Başarıyla Güncellendi.", Toast.LENGTH_SHORT).show()
+            }
+        }else{
+            Toast.makeText(context, "Lütfen Adres Bilgilerinizi Doğru Şekilde Girin!", Toast.LENGTH_SHORT).show()
         }
     }
 
