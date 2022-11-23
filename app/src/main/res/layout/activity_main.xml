@@ -16,42 +16,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextEmailLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        app:startIconTint="@color/black"
         android:hint="E-Mail"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
-        android:ems="14"
-        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/loginLogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginLogo"/>
+        app:layout_constraintStart_toStartOf="parent">
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="85dp"
+            android:ems="14"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginLogo"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextTextPasswordLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Şifre"
-        android:ems="14"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:startIconTint="@color/black"
+        app:endIconMode="password_toggle"
+        android:hint="Password"
+        app:layout_constraintTop_toBottomOf="@id/editTextEmailLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/girisButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Giriş Yap"
-        android:ems="14"
         android:backgroundTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="@id/editTextTextPasswordLayout"
+        app:layout_constraintStart_toStartOf="@id/editTextTextPasswordLayout"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextPasswordLayout" />
 
     <TextView
         android:id="@+id/goToRegisterTV"
@@ -60,7 +91,8 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:text="Hesabın yok mu? Kayıt Ol."
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/girisButton" />
+        app:layout_constraintTop_toBottomOf="@id/girisButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

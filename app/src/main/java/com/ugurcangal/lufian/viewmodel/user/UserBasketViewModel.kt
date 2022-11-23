@@ -81,15 +81,15 @@ class UserBasketViewModel @Inject constructor() : BaseViewModel() {
                 builderAlert.setTitle("Siparişiniz Oluşturulmuştur")
                 builderAlert.setMessage("Siparişiniz kargoya verildiğinde Sms ve Email olarak bilgilendirileceksiniz.")
                 builderAlert.setPositiveButton("Tamam") { dialogInterface, i ->
-                    Navigation.findNavController(view).navigate(R.id.userHomeFragment)
                     dialogInterface.dismiss()
                 }.create().show()
+                Navigation.findNavController(view).navigate(R.id.userHomeFragment)
                 firestore.collection("Basket").document(auth.currentUser!!.email.toString())
                     .delete()
                 basketList.value!!.clear()
             }
         } else {
-            Navigation.findNavController(view).navigate(R.id.userProfileFragment)
+            Navigation.findNavController(view).navigate(R.id.action_userBasketFragment_to_userProfileFragment)
             Toast.makeText(context, "Lütfen önce adres bilgilerinizi ekleyin!", Toast.LENGTH_SHORT)
                 .show()
         }

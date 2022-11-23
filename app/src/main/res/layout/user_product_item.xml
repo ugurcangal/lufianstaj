@@ -7,9 +7,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="180dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="#FAF9F9"
+        app:cardBackgroundColor="#D8D8D8"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        app:cardElevation="0dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +37,8 @@
                 android:layout_marginTop="10dp"
                 android:text="DENEMEDENEME"
                 android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,12 +49,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="6dp"
                 android:text="199 TL"
                 android:textStyle="bold"
                 android:textColor="#E80202"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/productName"/>
 
             <ImageView
