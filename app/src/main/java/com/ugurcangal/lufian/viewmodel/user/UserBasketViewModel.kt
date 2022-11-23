@@ -27,12 +27,15 @@ class UserBasketViewModel @Inject constructor() : BaseViewModel() {
                 value?.let {
                     if (it.data?.isNotEmpty() == true) {
                         var totalPrice = 0
-                        val price = it.get("basket") as ArrayList<HashMap<String, String>>
-                        for (item in price) {
+                        val basketList = it.get("basket") as ArrayList<HashMap<String, String>>
+                        for (item in basketList) {
+
                             val itemprice = item.get("price")
-                            if (itemprice != null) {
-                                totalPrice += itemprice.toInt()
+                            val totitemPrice = item.get("piece")
+                            if (itemprice != null && totitemPrice != null) {
+                                totalPrice += itemprice.toInt() * totitemPrice.toInt()
                             }
+
                         }
                         binding.totalPrice.text = "Sepet Tutarı: \n ${totalPrice.toString()} TL "
                         binding.completeOrder.isEnabled = true

@@ -98,7 +98,7 @@
 
 
 
-                <ImageView
+                <Button
                     android:id="@+id/pieceAddBtn"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -106,20 +106,29 @@
                     android:layout_gravity="end|center"
                     android:layout_marginEnd="10dp"/>
 
-                <TextView
-                    android:id="@+id/pieceTxt"
-                    android:layout_width="20dp"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="1"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"
-                    android:background="@color/ic_launcher_background"/>
+                    app:cardCornerRadius="30dp"
+                    android:background="@color/ic_launcher_background">
+
+                    <TextView
+                        android:id="@+id/pieceTxt"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:background="@color/ic_launcher_background"/>
+
+                </androidx.cardview.widget.CardView>
 
 
-                <ImageView
+                <Button
                     android:id="@+id/pieceRemoveBtn"
                     android:layout_width="20dp"
                     android:layout_height="20dp"

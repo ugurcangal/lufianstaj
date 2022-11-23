@@ -24,6 +24,7 @@ class UserBasketFragment : BaseFragment<FragmentUserBasketBinding,UserBasketView
         viewModel.getTotalPrice(binding)
         viewModel.getBasket()
         observeBasketList()
+        viewModel.checkAddress()
         binding.completeOrder.setOnClickListener {
             viewModel.completeOrder(requireContext(),it)
         }
