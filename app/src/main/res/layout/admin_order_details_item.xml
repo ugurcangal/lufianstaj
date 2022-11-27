@@ -90,6 +90,22 @@
                 app:layout_constraintStart_toEndOf="@id/basketIV"/>
 
 
+            <TextView
+                android:id="@+id/productPiece"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product ID"
+                android:textColor="#DF1313"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

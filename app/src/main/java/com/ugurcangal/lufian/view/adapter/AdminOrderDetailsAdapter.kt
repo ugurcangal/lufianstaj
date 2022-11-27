@@ -28,6 +28,7 @@ class AdminOrderDetailsAdapter(var basketList : ArrayList<HashMap<String,String>
         item.basketProductNameTV.text = product.get("name")?.replaceFirstChar {
             it.uppercase()
         }
+        item.productPiece.text = product.get("piece") + " Adet"
         item.basketProductPriceTV.text = product.get("price") + " TL"
         item.basketProductSizeTV.text = "Beden: " + product.get("size")
         item.productId.text = "Ürün ID: " + product.get("id")

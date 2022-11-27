@@ -1,8 +1,10 @@
 package com.ugurcangal.lufian.viewmodel
 
 import android.content.Intent
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.ugurcangal.lufian.view.activity.AdminActivity
@@ -20,7 +22,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     private val adminPass = "lufian"
 
 
-    fun signInFirebase(userEmail: String, password: String, activity: LoginActivity) {
+    fun signInFirebase(userEmail: String, password: String, activity: LoginActivity, view :View) {
 
         if (userEmail == adminUser && password == adminPass) {
             auth.signInWithEmailAndPassword(userEmail, password)
@@ -42,7 +44,8 @@ class LoginViewModel @Inject constructor() : ViewModel() {
                     activity.finish()
 
                 }.addOnFailureListener {
-                    Toast.makeText(activity, it.localizedMessage, Toast.LENGTH_SHORT).show()
+                    Snackbar.make(activity,view,it.localizedMessage,Snackbar.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, it.localizedMessage, Toast.LENGTH_SHORT).show()
                 }
         } else Toast.makeText(activity, "Lütfen Önce Bilgilerinizi Girin!", Toast.LENGTH_SHORT).show()
     }

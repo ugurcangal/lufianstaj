@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.girisButton.setOnClickListener {
-            viewModel.signInFirebase(binding.editTextEmail.text.toString(),binding.editTextTextPassword.text.toString(),this)
+            viewModel.signInFirebase(binding.editTextEmail.text.toString(),binding.editTextTextPassword.text.toString(),this, it)
         }
 
 
