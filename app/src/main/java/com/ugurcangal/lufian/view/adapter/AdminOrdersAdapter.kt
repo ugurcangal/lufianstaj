@@ -38,6 +38,8 @@ class AdminOrdersAdapter(val orderList : ArrayList<Orders>) : RecyclerView.Adapt
             builderAlert.setMessage("Emin misiniz?")
             builderAlert.setPositiveButton("İptal Et") { dialogInterface, i ->
                 firestore.collection("Orders").document(order.id).delete()
+                orderList.clear()
+                notifyDataSetChanged()
             }.create()
             builderAlert.setNegativeButton("Vazgeç") { dialog , i ->
                 dialog.dismiss()
